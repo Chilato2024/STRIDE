@@ -2,8 +2,8 @@
 
 ## Final Results
 
-- MELD: `66.43` weighted F1
-- IEMOCAP: `70.47` weighted F1
+- MELD: `66.64` weighted F1
+- IEMOCAP: `71.86` weighted F1
 
 
 ## Repo Layout

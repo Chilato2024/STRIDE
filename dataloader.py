@@ -1,6 +1,5 @@
 # =============================================================================
 # FILE: dataloader.py
-# (You provided this exact file — I kept it 100% unchanged for full compatibility)
 # =============================================================================
 from __future__ import annotations
 
@@ -114,7 +113,6 @@ class MultimodalConversationDataset(Dataset):
             return np.zeros((0,), dtype=np.int64)
 
         first = items[0]
-        # Case 1: one-hot or score vectors per utterance.
         if isinstance(first, (list, tuple, np.ndarray)):
             rows = np.asarray(items, dtype=np.float32)
             if rows.ndim != 2:
@@ -124,8 +122,6 @@ class MultimodalConversationDataset(Dataset):
             ids[nonzero] = rows[nonzero].argmax(axis=1).astype(np.int64) + 1
             return ids
 
-        # Case 2: strings or scalar ids. We only need within-conversation identity,
-        # so order-preserving local mapping is enough and robust.
         mapping: dict[Any, int] = {}
         ids: list[int] = []
         next_id = 1

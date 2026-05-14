@@ -11,8 +11,7 @@ def gelu(x: torch.Tensor) -> torch.Tensor:
 
 
 class PositionwiseFeedForward(nn.Module):
-    """SDT-style position-wise feed-forward with residual connection."""
-
+   
     def __init__(self, d_model: int, d_ff: int, dropout: float = 0.1):
         super().__init__()
         self.w_1 = nn.Linear(d_model, d_ff)
@@ -28,8 +27,7 @@ class PositionwiseFeedForward(nn.Module):
 
 
 class MultiHeadedAttention(nn.Module):
-    """Manual multi-head attention matching the SDT implementation style."""
-
+   
     def __init__(self, head_count: int, model_dim: int, dropout: float = 0.1):
         super().__init__()
         if model_dim % head_count != 0:
@@ -98,8 +96,7 @@ class PositionalEncoding(nn.Module):
 
 
 class TransformerEncoderLayer(nn.Module):
-    """SDT-style Transformer encoder layer with pre-norm on deeper layers."""
-
+    
     def __init__(self, d_model: int, heads: int, d_ff: int, dropout: float):
         super().__init__()
         self.self_attn = MultiHeadedAttention(heads, d_model, dropout=dropout)
@@ -116,8 +113,7 @@ class TransformerEncoderLayer(nn.Module):
 
 
 class TransformerEncoder(nn.Module):
-    """Unimodal encoder using the SDT transformer design."""
-
+    
     def __init__(
         self,
         d_model: int,

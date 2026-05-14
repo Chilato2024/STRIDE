@@ -14,7 +14,7 @@
 - `models/encoder.py`: unimodal Transformer encoders
 - `models/str.py`: main STRIDE model wiring
 - `models/sair.py`: speaker-aware iterative reasoning block
-- `models/fusion.py`: final adaptive-refusion fusion block
+- `models/fusion.py`: final fusion block
 - `utils/`: losses, metrics, seeds, and checkpoint helpers
 
 ## Data
